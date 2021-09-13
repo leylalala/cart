@@ -1,0 +1,8 @@
+<style>
+    p{
+        margin: 0px 5px;
+    }
+</style>
+<p *ngIf="product.price >0">
+    <button (click)="notify.emit(product.price)">通知</button>
+</p>

@@ -1,0 +1,23 @@
+<!-- <p>test works!</p> -->
+<!-- {{test}} -->
+<style>
+    .btn-container {
+        height: 23px;
+        display: flex;
+        flex-direction: row
+    }
+</style>
+<h2>Products</h2>
+<div *ngFor="let product of products; let i = index">
+    <h3>
+        <a 
+        [title]="product.name + 'details'"
+        [routerLink]="['products',product.id]"
+        >{{product.name}}</a>
+        <p *ngIf="product.description">{{product.description}}</p>
+        <div class="btn-container">
+            <button (click)="share(i)">分享</button>
+            <app-alert [product]="product" (notify)="onNotify($event)"> </app-alert>
+        </div>
+    </h3>
+</div>
